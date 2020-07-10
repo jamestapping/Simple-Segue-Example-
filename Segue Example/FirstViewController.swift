@@ -17,8 +17,19 @@ class FirstViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func buttonPressed(_ sender: Any) {
+    @IBAction func buttonPressed(_ sender: UIButton) {
         
+        //Animate the button
+        
+        UIButton.animate(withDuration: 0.2,
+                         animations: {
+                            sender.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)
+        },
+                         completion: { finish in
+                            UIButton.animate(withDuration: 0.2, animations: {
+                                sender.transform = CGAffineTransform.identity
+                            })
+        })
         
         self.performSegue(withIdentifier: "goToOutput", sender: self)
         
